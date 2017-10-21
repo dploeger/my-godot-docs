@@ -145,7 +145,7 @@ to the target destination on the right side of the screen.
 Again, click the key button in the toolbar. This will create our second
 keyframe - represented by a blue dot in the timeline.
 
-### Running the animation
+### Run the animation
 
 Click on the "Play from beginning"
 (![Play from beginning](images/playFromBeginning.png)) button of the animation
@@ -163,7 +163,7 @@ always calculates the frames between two keyframes. In a loop, the first
 keyframe is also the last keyframe, if no keyframe is specified at the end.
 
 If you set the length of the animation to 4 seconds now, the animation will
-be moving back and forth.
+move back and forth.
 
 ### Track settings
 
@@ -178,7 +178,7 @@ properties. This can be:
 * Trigger: Only update the property on keyframes or triggers
 
 In normal animations, you will usually just use "Continuous". The other types
-are used for scripting complex animations.
+are used to script complex animations.
 
 The interpolation tells Godot how to calculate the frame values between the
 keyframes. These interpolation modes are supported:
@@ -196,16 +196,16 @@ movement.
 
 ## Keyframes for other properties
 
-Godot doesn't restrict to just editing transform properties. Basically every
+Godot doesn't restrict to just edit transform properties. Basically every
 property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation tab is visible, you get a small
 keyframe button for all properties of the sprite. Click on this button and
 Godot will automatically add a track and keyframe to the current animation.
 
-## Keyframe editing
+## Edit keyframes
 
-For advanced use and detailed keyframe editing, the keyframe editor
+For advanced use and to edit keyframe in detail, the keyframe editor
 (![Keyframe editor](images/keyframeEditor.png)) can be enabled.
 
 This will add an editor pane on the right side of the track settings. When
@@ -217,7 +217,7 @@ Additionally, you can also edit the transition value for this keyframe:
 
 ![Keyframe editor editing a transition](images/keyframeEditorTransition.png)
 
-This will tell Godot, how to change the values of the property when reaching
+This will tell Godot, how to change the values of the property when it reaches
 this keyframe.
 
 You usually tweek your animations this way, when the movement doesn't
@@ -232,12 +232,12 @@ is a class and has a bunch of functions, that can be called.
 For example, the [`SamplePlayer2D`](http://docs.godotengine.org/en/stable/classes/class_sampleplayer2d.html)
 node type has a function to play a sample.
 
-As we create animations, playing a sample at a specific keyframe would be great,
-too. This is where "Call Func Tracks" come in handy. These tracks reference a
+Wouldn't it be great to play a sample at a specific keyframe in an animation?
+This is where "Call Func Tracks" come in handy. These tracks reference a
 node again, this time without a reference to a property. Instead a keyframe
 holds the name and arguments of a function to be called.
 
-To let Godot play a sample when reaching a keyframe, follow this list:
+To let Godot play a sample when it reaches a keyframe, follow this list:
 
 * Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample
 to it
@@ -256,7 +256,7 @@ on the track controls of the animation tab
 * Select "String" as the first argument type and use the sample name as the
 argument value
 
-When reaching the keyframe, Godot will call the SamplePlayer2D node's
+When Godot reaches the keyframe, Godot will call the SamplePlayer2D node's
 "play" function with the name of the sample.
 
 ## References
