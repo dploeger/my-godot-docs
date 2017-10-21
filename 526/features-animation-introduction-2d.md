@@ -4,7 +4,7 @@
 
 The `AnimationPlayer` node allows you to create anything from simple to complex animations.
 
-In this guide you will learn to:
+In this guide you learn to:
 
 - Work with the Animation Panel
 - Animate any property of any node
@@ -69,7 +69,7 @@ transition to one another.
 ### animation panel
 
 When selecting an AnimationPlayer node in the Scene Tree, the animation
-tab (found on the lower panel by default) will open up.
+panel (found on the lower panel by default) opens.
 
 It mainly consits of three parts:
 
@@ -93,7 +93,7 @@ a sprite node as a AnimationPlayer node child.
 
 ![Our scene setup](img/animation_play_from_beginning.png)
 
-The sprite will hold a image texture and we will animate that sprite
+The sprite holds an image texture and we animate that sprite
 to move between two points on the screen. As a starting point, move the
 sprite to a left position on the screen.
 
@@ -126,9 +126,9 @@ Deselect rotation, because we are only interested in the location of our sprite
 for this tutorial and click on the key button.
 
 As we don't have a track already set up for the transform/location property,
-Godot will ask, wether it should set it up for us. Click on "Create".
+Godot asks, wether it should set it up for us. Click on "Create".
 
-This will create a new track and our very first keyframe at the beginning of
+This creates a new track and our very first keyframe at the beginning of
 the timeline:
 
 ![The sprite track](img/animation_track.png)
@@ -147,7 +147,7 @@ The path always starts at the AnimationPlayer node's parent (so
 *Note*
 
 Don't worry! If you change the names of nodes in the Scene Tree, that you
-already have tracks for. Godot will automatically update the paths in
+already have tracks for. Godot automatically updates the paths in
 the tracks.
 
 ---
@@ -155,7 +155,7 @@ the tracks.
 ### The second keyframe
 
 Now we need to set the destination where our sprite should be headed and how
-much time it will take to get there.
+much time it takes to get there.
 
 Let's say, we want it to take 2 seconds to go to the other point. By default
 the animation is set to last only 1 second, so change this in the timeline
@@ -164,7 +164,7 @@ controls animation panel's lower panel to 2.
 Click on the timeline header near the 2 second mark and move the sprite
 to the target destination on the right side.
 
-Again, click the key button in the toolbar. This will create our second
+Again, click the key button in the toolbar. This creates our second
 keyframe.
 
 ### Run the animation
@@ -183,8 +183,7 @@ loops. Godot has an additional feature here. Like said before, Godot
 always calculates the frames between two keyframes. In a loop, the first
 keyframe is also the last keyframe, if no keyframe is specified at the end.
 
-If you set the animation length to 4 seconds now, the animation will
-move back and forth.
+If you set the animation length to 4 seconds now, the animation moves back and forth.
 
 ### Track settings
 
@@ -198,7 +197,7 @@ This can be:
 * Discrete: Only update the property on keyframes
 * Trigger: Only update the property on keyframes or triggers
 
-In normal animations, you will usually use "Continuous". The other types
+In normal animations, you usually use "Continuous". The other types
 are used to script complex animations.
 
 The interpolation tells Godot how to calculate the frame values between the
@@ -210,9 +209,9 @@ keyframes. These interpolation modes are supported:
 * Cubic: Set the value based on a curved function calculation between the two
   keyframes
 
-Cubic interpolation will lead to a more natural movement, where the animation
+Cubic interpolation leads to a more natural movement, where the animation
 is slower at a keyframe and faster between keyframes. This is usually used
-for character animation. Linear interpolation will create more of a robotic
+for character animation. Linear interpolation creates more of a robotic
 movement.
 
 ## Keyframes for other properties
@@ -222,14 +221,14 @@ property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation panel is visible, you get a small
 keyframe button for all of the sprite's properties. Click on this button and
-Godot will automatically add a track and keyframe to the current animation.
+Godot automatically adds a track and keyframe to the current animation.
 
 ## Edit keyframes
 
 For advanced use and to edit keyframe in detail, enable the keyframe editor
 (![Keyframe editor](img/animation_keyframe_editor_toggle.png)).
 
-This will add an editor pane on the right side of the track settings. When
+This adds an editor pane on the right side of the track settings. When
 you select a keyframe, you can directly edit its values in this editor:
 
 ![Keyframe editor editing a key](img/animation_keyframe_editor_key.png)
@@ -238,7 +237,7 @@ Additionally, you can also edit the transition value for this keyframe:
 
 ![Keyframe editor editing a transition](img/animation_keyframe_editor_transition.png)
 
-This will tell Godot, how to change the property values when it reaches
+This tells Godot, how to change the property values when it reaches
 this keyframe.
 
 You usually tweak your animations this way, when the movement doesn't
@@ -265,7 +264,7 @@ to it
 * Click on "Add track" (![Add track](img/animation_add_track.png))
 on the animation panel's track controls
 * Select "Add Call Func Track" from the list of possible track types
-* Select the SamplePlayer2D node in the selection window. Godot will add the
+* Select the SamplePlayer2D node in the selection window. Godot adds the
   track with the reference to the node
 * Select the timeline position, where Godot should play the sample by clicking on the timeline header
 * Click on "Add keyframe" near the settings of our func track
@@ -276,7 +275,7 @@ on the animation panel's track controls
 * Select "String" as the first argument type and use the sample name as the
 argument value
 
-When Godot reaches the keyframe, Godot will call the SamplePlayer2D node's
+When Godot reaches the keyframe, Godot calls the SamplePlayer2D node's
 "play" function with the sample name.
 
 ## References
