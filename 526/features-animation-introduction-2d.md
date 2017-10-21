@@ -2,16 +2,16 @@
 
 ## Overview
 
-Wether it's a animating a logo, a character or a user interface, animation
+Wether it's animating a logo, a character or a user interface, animation
 is a key part of each developed game.
 
 Godot has a powerful animation engine, that allows the developer to create
 anything from a simple to a complex animation.
 
 In this guide you will learn the basics of a very key part of Godot's 2D
-animation system: the AnimationPlayer. You will get to know it's user
-interface, create a simple animation with it, and also learn, how to call
-functions in an animation.
+animation system: the AnimationPlayer. You will get to know its user
+interface and create a simple animation with it. If you are an advanced
+Godot user, you will also learn how to call node functions in an animation.
 
 ## Animation components
 
@@ -46,8 +46,10 @@ transition to one another.
 
 ### Animation tab
 
-When selecting an AnimationPlayer node, the animation tab (found on the
-  lower panel per default) will open up. It mainly consits of three parts:
+When selecting an AnimationPlayer node in the Scene Tree, the animation
+tab (found on the lower panel by default) will open up.
+
+It mainly consits of three parts:
 
 ![The animation tab](images/animationTab.png)
 
@@ -58,14 +60,14 @@ When selecting an AnimationPlayer node, the animation tab (found on the
 * The timeline and track controls, where you can zoom the timeline and edit
   tracks for example.
 
-See the Animation tab reference below for details.
+See the [Animation tab reference](#animation-tab-reference) below for details.
 
-## Creating a simple animation
+## Tutorial: Creating a simple animation
 
 ### Scene setup
 
 For this simple tutorial, we'll going to create an AnimationPlayer node and
-a sprite node as a children of the AnimationPlayer.
+a sprite node as a child of the AnimationPlayer node.
 
 ![Our scene setup](images/animationPlayerTree.png)
 
@@ -77,7 +79,7 @@ sprite to a left position on the screen.
 
 *Note*
 
-Adding animated nodes as child nodes to the AnimationPlayer is not required.
+Adding animated nodes as children to the AnimationPlayer node is not required.
 However, it is a nice way of distinguishing animated parts from non-animated
 parts in the Scene Tree.
 
@@ -102,19 +104,15 @@ Deselect rotation, because we are only interested in the location of our sprite
 for this tutorial, and click on the key button.
 
 As we don't have a track already set up for the transform/location property,
-the animation tab will ask, wether it should set it up for us. Click on
-"Create".
+Godot will ask, wether it should set it up for us. Click on "Create".
 
 This will create a new track and our very first keyframe at the beginning of
 the timeline:
 
 ![The sprite track](images/animationTrack.png)
 
-As you can see, the track list doesn't hold a descriptive name for a track,
-instead the list holds references.
-
-The track is composed of a path to a node, followed by a colon,
-followed by a reference to its property we would like to modify.
+The track name is composed of a Node Path, followed by a colon,
+followed by a reference to its property, that we would like to modify.
 
 In our example, the path is `AnimationPlayer/Sprite` and the property is
 `transform/pos`.
@@ -126,17 +124,18 @@ The path always starts at the parent node of the AnimationPlayer node (so
 
 *Note*
 
-Don't worry, if you change the names of nodes you already have tracks for.
-Godot will automatically update the paths in the tracks.
+Don't worry! If you change the names of nodes in the Scene Tree, that you
+already have tracks for. Godot will automatically update the paths in
+the tracks.
 
 ---
 
 ### The second keyframe
 
-Now we need to set the destination, where our sprite should be headed and how
+Now we need to set the destination where our sprite should be headed and how
 much time it will take to get there.
 
-Let's say, we want it to take 2 seconds to go to the other point. Per default
+Let's say, we want it to take 2 seconds to go to the other point. By default
 the animation is set to last only 1 second, so change this in the timeline
 controls on the bottom of the animation tab to 2.
 
@@ -148,8 +147,7 @@ keyframe - represented by a blue dot in the timeline.
 
 ### Running the animation
 
-Click on the header of the timeline again, this time on the 0 second mark,
-then click on the "Play from beginning"
+Click on the "Play from beginning"
 (![Play from beginning](images/playFromBeginning.png)) button of the animation
 controls.
 
@@ -160,9 +158,9 @@ Yay! Our animation runs:
 ### Back and forth
 
 As you can see, the "loop" button is enabled by default and our animation
-simply loops. Godot has an additionally nice feature here. Godot always
-calculates the frames between to keyframes. In a loop, the first keyframe
-is also the last keyframe, if no keyframe is specified at the end.
+simply loops. Godot has an additional feature here. Like said before, Godot
+always calculates the frames between two keyframes. In a loop, the first
+keyframe is also the last keyframe, if no keyframe is specified at the end.
 
 If you set the length of the animation to 4 seconds now, the animation will
 be moving back and forth.
@@ -179,9 +177,8 @@ properties. This can be:
 * Discrete: Only update the property on keyframes
 * Trigger: Only update the property on keyframes or triggers
 
-In normal animations, you will usually just use "Continuous", but be aware,
-that you can have other forms of updating as well and the features for
-coding complex animations here.
+In normal animations, you will usually just use "Continuous". The other types
+are used for scripting complex animations.
 
 The interpolation tells Godot how to calculate the frame values between the
 keyframes. These interpolation modes are supported:
@@ -200,10 +197,10 @@ movement.
 ## Keyframes for other properties
 
 Godot doesn't restrict to just editing transform properties. Basically every
-property can be used as a track and can set keyframes.
+property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation tab is visible, you get a small
-keyframe button for all properties of the sprite. Click on one button and
+keyframe button for all properties of the sprite. Click on this button and
 Godot will automatically add a track and keyframe to the current animation.
 
 ## Keyframe editing
@@ -229,36 +226,37 @@ You usually tweek your animations this way, when the movement doesn't
 ## Advanced: Call Func tracks
 
 Godot's animation engine doesn't stop here. If you're already comfortable with
-Godot's scripting language GDScript and API, you know, that each node type
+Godot's scripting language GDScript and API you know that each node type
 is a class and has a bunch of functions, that can be called.
 
 For example, the [`SamplePlayer2D`](http://docs.godotengine.org/en/stable/classes/class_sampleplayer2d.html)
-has a function to play a sample.
+node type has a function to play a sample.
 
 As we create animations, playing a sample at a specific keyframe would be great,
 too. This is where "Call Func Tracks" come in handy. These tracks reference a
-node again, this time without a reference to a property.
+node again, this time without a reference to a property. Instead a keyframe
+holds the name and arguments of a function to be called.
 
 To let Godot play a sample when reaching a keyframe, follow this list:
 
 * Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample
-to it.
+to it
 * Click on "Add track" (![Add track](images/addTrack.png))
-on the track controls of the animation tab.
-* Select "Add Call Func Track" from the list of possible track types.
+on the track controls of the animation tab
+* Select "Add Call Func Track" from the list of possible track types
 * Select the SamplePlayer2D node in the selection window. Godot will add the
-  track with the reference to the node.
+  track with the reference to the node
 * Select the frame, where the sample should be played by using the timeline
   header
 * Click on "Add keyframe" near the settings of our func track
   (![Add keyframe](images/addKeyframe.png)).
 * Select the keyframe
 * Enable the Keyframe Editor
-* Enter "play" as the name of the function and set the argument counter to 1.
-* Select "String" as the first argument type and use the Sample name as the
-argument value.
+* Enter "play" as the name of the function and set the argument counter to 1
+* Select "String" as the first argument type and use the sample name as the
+argument value
 
-Now, when reaching the keyframe, Godot will call the SamplePlayer2D node's
+When reaching the keyframe, Godot will call the SamplePlayer2D node's
 "play" function with the name of the sample.
 
 ## References
