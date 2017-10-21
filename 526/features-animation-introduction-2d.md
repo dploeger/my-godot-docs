@@ -33,7 +33,7 @@ values between two keyframes.
 When doing animation in Godot you're dealing with three parts:
 
 * One or more AnimationPlayer nodes (although one is usually enough)
-* The animation tab
+* The animation panel
 * Some nodes to animate
 
 ### AnimationPlayer nodes
@@ -44,14 +44,14 @@ transition to one another.
 
 ![The AnimationPlayer node](images/animationPlayerTree.png)
 
-### Animation tab
+### animation panel
 
 When selecting an AnimationPlayer node in the Scene Tree, the animation
 tab (found on the lower panel by default) will open up.
 
 It mainly consits of three parts:
 
-![The animation tab](images/animationTab.png)
+![The animation panel](images/animationTab.png)
 
 * Animation controls (i.e. add, load, save, and delete animations)
 * The tracks listing
@@ -60,7 +60,7 @@ It mainly consits of three parts:
 * The timeline and track controls, where you can zoom the timeline and edit
   tracks for example.
 
-See the [Animation tab reference](#animation-tab-reference) below for details.
+See the [animation panel reference](#animation-tab-reference) below for details.
 
 ## Tutorial: Creating a simple animation
 
@@ -137,7 +137,7 @@ much time it will take to get there.
 
 Let's say, we want it to take 2 seconds to go to the other point. By default
 the animation is set to last only 1 second, so change this in the timeline
-controls animation tab's lower panel to 2.
+controls animation panel's lower panel to 2.
 
 Click on the timeline header near the 2 second mark and move the sprite
 to the target destination on the right side.
@@ -198,7 +198,7 @@ movement.
 Godot doesn't restrict to only edit transform properties. Every
 property can be used as a track where you can set keyframes.
 
-If you select your sprite while the animation tab is visible, you get a small
+If you select your sprite while the animation panel is visible, you get a small
 keyframe button for all of the sprite's properties. Click on this button and
 Godot will automatically add a track and keyframe to the current animation.
 
@@ -241,7 +241,7 @@ To let Godot play a sample when it reaches a keyframe, follow this list:
 * Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample
 to it
 * Click on "Add track" (![Add track](images/addTrack.png))
-on the animation tab's track controls
+on the animation panel's track controls
 * Select "Add Call Func Track" from the list of possible track types
 * Select the SamplePlayer2D node in the selection window. Godot will add the
   track with the reference to the node
@@ -260,11 +260,11 @@ When Godot reaches the keyframe, Godot will call the SamplePlayer2D node's
 
 ## References
 
-### Animation tab reference
+### animation panel reference
 
-![The animation tab refrence](images/animationTabReference.png)
+![The animation panel refrence](images/animationTabReference.png)
 
-The animation tab has the following parts:
+The animation panel has the following parts:
 
 * Animation controls
    * Play animation backwards from current position
