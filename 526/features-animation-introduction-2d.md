@@ -15,7 +15,7 @@ Godot user, you will also learn how to call node functions in an animation.
 
 ## Animation components
 
-Animations in Godot basically consist of the timeline, tracks and (key-)frames.
+Animations in Godot consist of the timeline, tracks and (key-)frames.
 
 The timeline is the concerted animation based on tracks and frames.
 
@@ -66,12 +66,12 @@ See the [Animation tab reference](#animation-tab-reference) below for details.
 
 ### Scene setup
 
-For this simple tutorial, we'll going to create an AnimationPlayer node and
+For this tutorial, we'll going to create an AnimationPlayer node and
 a sprite node as a child of the AnimationPlayer node.
 
 ![Our scene setup](images/animationPlayerTree.png)
 
-The sprite will hold a simple image texture and we will animate that sprite
+The sprite will hold a image texture and we will animate that sprite
 to move between two points on the screen. As a starting point, move the
 sprite to a left position on the screen.
 
@@ -79,8 +79,8 @@ sprite to a left position on the screen.
 
 *Note*
 
-Adding animated nodes as children to the AnimationPlayer node is not required.
-However, it is a nice way of distinguishing animated parts from non-animated
+Adding animated nodes as children to the AnimationPlayer node is not required,
+but it is a nice way of distinguishing animated parts from non-animated
 parts in the Scene Tree.
 
 ---
@@ -158,7 +158,7 @@ Yay! Our animation runs:
 ### Back and forth
 
 As you can see, the "loop" button is enabled by default and our animation
-simply loops. Godot has an additional feature here. Like said before, Godot
+loops. Godot has an additional feature here. Like said before, Godot
 always calculates the frames between two keyframes. In a loop, the first
 keyframe is also the last keyframe, if no keyframe is specified at the end.
 
@@ -177,7 +177,7 @@ properties. This can be:
 * Discrete: Only update the property on keyframes
 * Trigger: Only update the property on keyframes or triggers
 
-In normal animations, you will usually just use "Continuous". The other types
+In normal animations, you will usually use "Continuous". The other types
 are used to script complex animations.
 
 The interpolation tells Godot how to calculate the frame values between the
@@ -196,7 +196,7 @@ movement.
 
 ## Keyframes for other properties
 
-Godot doesn't restrict to just edit transform properties. Basically every
+Godot doesn't restrict to only edit transform properties. Every
 property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation tab is visible, you get a small
