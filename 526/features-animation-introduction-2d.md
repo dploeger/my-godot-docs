@@ -20,7 +20,7 @@ Animations in Godot consist of the timeline, tracks and (key-)frames.
 The timeline is the concerted animation based on tracks and frames.
 
 A track is a reference to a property, that is modified during the animation.
-An example would be the position value of the transform property of a sprite,
+An example would be the sprite's transform property's position value,
 that is modified to match a path between two points A and B.
 
 Keyframes are key points in the timeline, that specify a goal value for a
@@ -67,7 +67,7 @@ See the [Animation tab reference](#animation-tab-reference) below for details.
 ### Scene setup
 
 For this tutorial, we'll going to create an AnimationPlayer node and
-a sprite node as a child of the AnimationPlayer node.
+a sprite node as a AnimationPlayer node child.
 
 ![Our scene setup](images/animationPlayerTree.png)
 
@@ -97,8 +97,8 @@ To add a new track for our sprite, select it and take a look in the toolbar:
 
 ![Convenience buttons](images/convenienceButtons.png)
 
-These switches and buttons allow you to add keyframes for the location, rotation,
-and scale of the selected node respectively.
+These switches and buttons allow you to add keyframes for the selected node's
+location, rotation, and scale respectively.
 
 Deselect rotation, because we are only interested in the location of our sprite
 for this tutorial, and click on the key button.
@@ -117,7 +117,7 @@ followed by a reference to its property, that we would like to modify.
 In our example, the path is `AnimationPlayer/Sprite` and the property is
 `transform/pos`.
 
-The path always starts at the parent node of the AnimationPlayer node (so
+The path always starts at the AnimationPlayer node's parent (so
   paths always have to include the AnimationPlayer node itself).
 
 ---
@@ -137,10 +137,10 @@ much time it will take to get there.
 
 Let's say, we want it to take 2 seconds to go to the other point. By default
 the animation is set to last only 1 second, so change this in the timeline
-controls on the bottom of the animation tab to 2.
+controls animation tab's lower panel to 2.
 
-Click on the header of the timeline near the 2 second mark and move the sprite
-to the target destination on the right side of the screen.
+Click on the timeline header near the 2 second mark and move the sprite
+to the target destination on the right side.
 
 Again, click the key button in the toolbar. This will create our second
 keyframe - represented by a blue dot in the timeline.
@@ -148,8 +148,7 @@ keyframe - represented by a blue dot in the timeline.
 ### Run the animation
 
 Click on the "Play from beginning"
-(![Play from beginning](images/playFromBeginning.png)) button of the animation
-controls.
+(![Play from beginning](images/playFromBeginning.png)) button.
 
 Yay! Our animation runs:
 
@@ -162,7 +161,7 @@ loops. Godot has an additional feature here. Like said before, Godot
 always calculates the frames between two keyframes. In a loop, the first
 keyframe is also the last keyframe, if no keyframe is specified at the end.
 
-If you set the length of the animation to 4 seconds now, the animation will
+If you set the animation length to 4 seconds now, the animation will
 move back and forth.
 
 ### Track settings
@@ -170,8 +169,8 @@ move back and forth.
 Each track has a settings panel at the end, where you can set the update rate
 and the track interpolation.
 
-The update rate of a track tells Godot when to update the values of the
-properties. This can be:
+The update rate of a track tells Godot when to update the property values.
+This can be:
 
 * Continuous: Update the property on each frame
 * Discrete: Only update the property on keyframes
@@ -183,7 +182,7 @@ are used to script complex animations.
 The interpolation tells Godot how to calculate the frame values between the
 keyframes. These interpolation modes are supported:
 
-* Nearest: Set the value of the nearest keyframe
+* Nearest: Set the nearest keyframe value
 * Linear: Set the value based on a linear function calculation between the two
   keyframes
 * Cubic: Set the value based on a curved function calculation between the two
@@ -200,7 +199,7 @@ Godot doesn't restrict to only edit transform properties. Every
 property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation tab is visible, you get a small
-keyframe button for all properties of the sprite. Click on this button and
+keyframe button for all of the sprite's properties. Click on this button and
 Godot will automatically add a track and keyframe to the current animation.
 
 ## Edit keyframes
@@ -217,7 +216,7 @@ Additionally, you can also edit the transition value for this keyframe:
 
 ![Keyframe editor editing a transition](images/keyframeEditorTransition.png)
 
-This will tell Godot, how to change the values of the property when it reaches
+This will tell Godot, how to change the property values when it reaches
 this keyframe.
 
 You usually tweek your animations this way, when the movement doesn't
@@ -242,7 +241,7 @@ To let Godot play a sample when it reaches a keyframe, follow this list:
 * Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample
 to it
 * Click on "Add track" (![Add track](images/addTrack.png))
-on the track controls of the animation tab
+on the animation tab's track controls
 * Select "Add Call Func Track" from the list of possible track types
 * Select the SamplePlayer2D node in the selection window. Godot will add the
   track with the reference to the node
@@ -252,12 +251,12 @@ on the track controls of the animation tab
   (![Add keyframe](images/addKeyframe.png)).
 * Select the keyframe
 * Enable the Keyframe Editor
-* Enter "play" as the name of the function and set the argument counter to 1
+* Enter "play" as the function name and set the argument counter to 1
 * Select "String" as the first argument type and use the sample name as the
 argument value
 
 When Godot reaches the keyframe, Godot will call the SamplePlayer2D node's
-"play" function with the name of the sample.
+"play" function with the sample name.
 
 ## References
 
@@ -269,9 +268,9 @@ The animation tab has the following parts:
 
 * Animation controls
    * Play animation backwards from current position
-   * Play animation backwards from the end of the animation
+   * Play animation backwards from the animation end
    * Stop animation
-   * Play animation forwards from the beginning of the animation
+   * Play animation forwards from the animation beginning
    * Play animation forwards from the current position
    * Direct time selection
 * Animation management:
