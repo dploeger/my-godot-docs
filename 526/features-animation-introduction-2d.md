@@ -71,7 +71,7 @@ transition to one another.
 When selecting an AnimationPlayer node in the Scene Tree, the animation
 panel (found on the lower panel by default) opens.
 
-It mainly consits of three parts:
+It consists of five parts:
 
 ![The animation panel](img/animation_animation_panel_overview.png)
 
@@ -282,7 +282,7 @@ When Godot reaches the keyframe, Godot calls the SamplePlayer2D node's
 
 ### animation panel reference
 
-![The animation panel refrence](img/animation_animation_panel_reference.png)
+![The animation panel reference](img/animation_animation_panel_reference.png)
 
 The animation panel has the following parts:
 
