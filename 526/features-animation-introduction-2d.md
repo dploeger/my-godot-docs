@@ -15,7 +15,7 @@ Godot user, you will also learn how to call node functions in an animation.
 
 ## Animation components
 
-Animations in Godot consist of the timeline, tracks and (key-)frames.
+Animations in Godot consist of the timeline, tracks, and (key-)frames.
 
 The timeline is the concerted animation based on tracks and frames.
 
@@ -101,7 +101,7 @@ These switches and buttons allow you to add keyframes for the selected node's
 location, rotation, and scale respectively.
 
 Deselect rotation, because we are only interested in the location of our sprite
-for this tutorial, and click on the key button.
+for this tutorial and click on the key button.
 
 As we don't have a track already set up for the transform/location property,
 Godot will ask, wether it should set it up for us. Click on "Create".
@@ -219,7 +219,7 @@ Additionally, you can also edit the transition value for this keyframe:
 This will tell Godot, how to change the property values when it reaches
 this keyframe.
 
-You usually tweek your animations this way, when the movement doesn't
+You usually tweak your animations this way, when the movement doesn't
 "look right".
 
 ## Advanced: Call Func tracks
