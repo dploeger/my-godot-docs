@@ -97,15 +97,13 @@ The sprite holds an image texture and we animate that sprite
 to move between two points on the screen. As a starting point, move the
 sprite to a left position on the screen.
 
----
-
-*Note*
+`
+.. tip::
 
 Adding animated nodes as children to the AnimationPlayer node is not required,
 but it is a nice way of distinguishing animated nodes from non-animated
 nodes in the Scene Tree.
-
----
+`
 
 Select the AnimationPlayer node and click on "Add animation"
 (![Add Animation](img/animation_add.png)) in the animation
@@ -142,15 +140,13 @@ In our example, the path is `AnimationPlayer/Sprite` and the property is
 The path always starts at the AnimationPlayer node's parent (so
   paths always have to include the AnimationPlayer node itself).
 
----
-
-*Note*
+`
+.. note::
 
 Don't worry! If you change the names of nodes in the Scene Tree, that you
 already have tracks for. Godot automatically updates the paths in
 the tracks.
-
----
+`
 
 ### The second keyframe
 
