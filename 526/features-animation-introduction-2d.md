@@ -174,7 +174,7 @@ Godot doesn't restrict to only edit transform properties. Every property can be 
 
 If you select your sprite while the animation panel is visible, you get a small keyframe button for all of the sprite's properties. Click on this button and Godot automatically adds a track and keyframe to the current animation.
 
-![Keyframes for other properties](animation_properties_keyframe.png)
+![Keyframes for other properties](img/animation_properties_keyframe.png)
 
 ## Edit keyframes
 
@@ -202,16 +202,31 @@ Wouldn't it be great to play a sample at a specific keyframe in an animation? Th
 
 To let Godot play a sample when it reaches a keyframe, follow this list:
 
-* Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample to it
-* Click on "Add track" (![Add track](img/animation_add_track.png)) on the animation panel's track controls
-* Select "Add Call Func Track" from the list of possible track types
-* Select the SamplePlayer2D node in the selection window. Godot adds the track with the reference to the node
-* Select the timeline position, where Godot should play the sample by clicking on the timeline header
-* Click on "Add keyframe" near the settings of our func track (![Add keyframe](img/animation_add_keyframe.png))
-* Select the keyframe
-* Enable the Keyframe Editor
-* Enter "play" as the function name and set the argument counter to 1
-* Select "String" as the first argument type and use the sample name as the argument value
+Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample to it.
+
+![Add SamplePlayer2D](img/animation_add_sampleplayer2d.png)
+
+Click on "Add track" (![Add track](img/animation_add_track.png)) on the animation panel's track controls.
+
+Select "Add Call Func Track" from the list of possible track types.
+
+![Add Call Func Track](img/animation_add_call_func_track.png)
+
+Select the SamplePlayer2D node in the selection window. Godot adds the track with the reference to the node.
+
+![Select SamplePlayer2D](img/animation_select_sampleplayer2d.png)
+
+Select the timeline position, where Godot should play the sample by clicking on the timeline header.
+
+Enable the Keyframe Editor by clicking on ![Keyframe editor](img/animation_keyframe_editor_toggle.png).
+
+Click on "Add keyframe" near the settings of our func track (![Add keyframe](img/animation_add_keyframe.png)) and select the keyframe.
+
+![Add a keyframe to the call func track](img/animation_call_func_add_keyframe.png)
+
+Enter "play" as the function name and set the argument counter to 1. Select "String" as the first argument type and use the sample name as the argument value.
+
+![Keyframe settings of a call func track](img/animation_call_func_keyframe.png)
 
 When Godot reaches the keyframe, Godot calls the SamplePlayer2D node's "play" function with the sample name.
 
