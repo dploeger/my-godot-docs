@@ -236,35 +236,53 @@ When Godot reaches the keyframe, Godot calls the SamplePlayer2D node's "play" fu
 
 ![The animation panel reference](img/animation_animation_panel_reference.png)
 
-The animation panel has the following parts:
+The animation panel has the following parts (from left to right):
 
-* Animation controls
-   * Play animation backwards from current position
-   * Play animation backwards from the animation end
-   * Stop animation
-   * Play animation forwards from the animation beginning
-   * Play animation forwards from the current position
-   * Direct time selection
-* Animation management:
-   * Create a new animation
-   * Load animation
-   * Save animation
-   * Duplicate animation
-   * Rename animation
-   * Delete animation
-   * Animation selection
-   * Automatically play selected animation
-   * Edit animation blend times
-   * Extended animation Tools
-* Timeline zoom level control
-* Timeline control
-   * Length of animation
-   * Steps of animation
-   * Toggle loop animation
-* Track controls
-   * Add track
-   * Move track up
-   * Move track down
-   * Delete track
-   * Extended track tools
-   * Toggle keyframe editor
+#### Animation controls
+
+![Animation controls](img/animation_reference_animation_controls.png)
+
+* Play animation backwards from current position
+* Play animation backwards from the animation end
+* Stop animation
+* Play animation forwards from the animation beginning
+* Play animation forwards from the current position
+* Direct time selection
+
+#### Animation management
+
+![Animation management](img/animation_reference_animation_management.png)
+
+* Create a new animation
+* Load animation
+* Save animation
+* Duplicate animation
+* Rename animation
+* Delete animation
+* Animation selection
+* Automatically play selected animation
+* Edit animation blend times
+* Extended animation Tools
+
+#### Timeline zoom level control
+
+![Timeline zoom level contro](img/animation_reference_timeline_zoom_level.png)
+
+#### Timeline control
+
+![Timeline control](img/animation_reference_timeline_controls.png)
+
+* Length of animation
+* Steps of animation
+* Toggle loop animation
+
+#### Track control
+
+![Track control](img/animation_reference_track_control.png)
+
+* Add track
+* Move track up
+* Move track down
+* Delete track
+* Extended track tools
+* Toggle keyframe editor
