@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `AnimationPlayer` node allows you to create anything from simple to complex animations.
+The :ref:`class_AnimationPlayer` node allows you to create anything from simple to complex animations.
 
 In this guide you learn to:
 
@@ -15,7 +15,7 @@ In Godot you can animate anything you find in the Inspector. Animations are chan
 
 ## Create an AnimationPlayer node
 
-To use the animation tools we first have to create an `AnimationPlayer` node.
+To use the animation tools we first have to create an :ref:`class_AnimationPlayer` node.
 
 The AnimationPlayer node type is the data container for your animations. One AnimationPlayer node can hold multiple animations, that can automatically transition to one another.
 
@@ -58,11 +58,9 @@ Each line of the Animation Panel is an animation track. Normal and Transform tra
 
 ![Example of Normal animation tracks](img/animation_normal_track.png)
 
-`
 .. tip::
 
 If you animate the wrong property, you can edit a track's path anytime. Double click on it and type the new path. Play the animation using the "Play from beginning" button ![Play from beginning](img/animation_play_from_beginning.png) (Default shortcut: Shift+D) to see the changes instantly.
-`
 
 ## Tutorial: Creating a simple animation
 
@@ -74,11 +72,9 @@ For this tutorial, we'll going to create an AnimationPlayer node and a sprite no
 
 The sprite holds an image texture and we animate that sprite to move between two points on the screen. As a starting point, move the sprite to a left position on the screen.
 
-`
 .. tip::
 
 Adding animated nodes as children to the AnimationPlayer node is not required, but it is a nice way of distinguishing animated nodes from non-animated nodes in the Scene Tree.
-`
 
 Select the AnimationPlayer node and click on "Add animation" (![Add Animation](img/animation_add.png)) in the animation  tab to add a new animation.
 
@@ -108,11 +104,9 @@ In our example, the path is `AnimationPlayer/Sprite` and the property is `transf
 
 The path always starts at the AnimationPlayer node's parent (so paths always have to include the AnimationPlayer node itself).
 
-`
 .. note::
 
-Don't worry if you change the names of nodes in the Scene Tree, that you already have tracks for. Godot automatically updates the paths in the tracks.
-`
+   Don't worry if you change the names of nodes in the Scene Tree, that you already have tracks for. Godot automatically updates the paths in the tracks.
 
 ### The second keyframe
 
@@ -196,7 +190,7 @@ You usually tweak your animations this way, when the movement doesn't "look righ
 
 Godot's animation engine doesn't stop here. If you're already comfortable with Godot's scripting language GDScript and API you know that each node type is a class and has a bunch of callable functions.
 
-For example, the [`SamplePlayer2D`](http://docs.godotengine.org/en/stable/classes/class_sampleplayer2d.html) node type has a function to play a sample.
+For example, the :ref:`class_SamplePlayer2D` node type has a function to play a sample.
 
 Wouldn't it be great to play a sample at a specific keyframe in an animation? This is where "Call Func Tracks" come in handy. These tracks reference a node again, this time without a reference to a property. Instead a keyframe holds the name and arguments of a function, that Godot should call when reaching this keyframe.
 
