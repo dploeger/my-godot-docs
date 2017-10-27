@@ -2,7 +2,7 @@
 
 ## Overview
 
-The :ref:`class_AnimationPlayer` node allows you to create anything from simple to complex animations.
+The :ref:class_AnimationPlayer node allows you to create anything from simple to complex animations.
 
 In this guide you learn to:
 
@@ -15,7 +15,7 @@ In Godot you can animate anything you find in the Inspector. Animations are chan
 
 ## Create an AnimationPlayer node
 
-To use the animation tools we first have to create an :ref:`class_AnimationPlayer` node.
+To use the animation tools we first have to create an :ref:class_AnimationPlayer node.
 
 The AnimationPlayer node type is the data container for your animations. One AnimationPlayer node can hold multiple animations, that can automatically transition to one another.
 
@@ -32,14 +32,14 @@ It consists of five parts:
 * Animation controls (i.e. add, load, save, and delete animations)
 * The tracks listing
 * The timeline with keyframes
-* The track modifiers and keyframe editor (when enabled)
+* The keyframe editor (when enabled)
 * The timeline and track controls, where you can zoom the timeline and edit tracks for example.
 
 See the [animation panel reference](#animation-panel-reference) below for details.
 
 ## Computer animation relies on keyframes
 
-On the computer animations rely on keyframes. A keyframe defines the value of a property at a certain point in time.
+A keyframe defines the value of a property at a certain point in time.
 
 White and blue diamond shapes represent keyframes in the timeline.
 
@@ -54,7 +54,7 @@ The timeline lets you insert keyframes and change their timing. It also defines 
 ![The timeline in the animation panel](img/animation_timeline.png)
 
 
-Each line of the Animation Panel is an animation track. Normal and Transform tracks reference node properties. Their name or id is a path to the node.
+Each line of the Animation Panel is an animation track. Normal and Transform tracks reference node properties. Their name or id is a path to the node and the affected property.
 
 ![Example of Normal animation tracks](img/animation_normal_track.png)
 
@@ -66,7 +66,7 @@ If you animate the wrong property, you can edit a track's path anytime. Double c
 
 ### Scene setup
 
-For this tutorial, we'll going to create an AnimationPlayer node and a sprite node as a AnimationPlayer node child.
+For this tutorial, we'll going to create an AnimationPlayer node and a sprite node as an AnimationPlayer node child.
 
 ![Our scene setup](img/animation_animation_player_tree.png)
 
@@ -100,7 +100,7 @@ This creates a new track and our very first keyframe at the beginning of the tim
 
 The track name consists of a Node Path, followed by a colon, followed by a reference to its property, that we would like to modify.
 
-In our example, the path is `AnimationPlayer/Sprite` and the property is `transform/pos`.
+In our example, the path is `AnimationPlayer/Sprite` and the property is `position`.
 
 The path always starts at the AnimationPlayer node's parent (so paths always have to include the AnimationPlayer node itself).
 
@@ -112,7 +112,7 @@ The path always starts at the AnimationPlayer node's parent (so paths always hav
 
 Now we need to set the destination where our sprite should be headed and how much time it takes to get there.
 
-Let's say, we want it to take 2 seconds to go to the other point. By default the animation is set to last only 1 second, so change this in the timeline controls animation panel's lower panel to 2.
+Let's say, we want it to take 2 seconds to go to the other point. By default the animation is set to last only 1 second, so change this in the timeline controls in animation panel's lower panel to 2.
 
 ![Animation length](img/animation_set_length.png)
 
@@ -134,11 +134,11 @@ As you can see, the "loop" button is enabled by default and our animation loops.
 
 ![Animation loop](img/animation_loop.png)
 
-If you set the animation length to 4 seconds now, the animation moves back and forth.
+If you set the animation length to 4 seconds now, the animation moves back and forth. You can change this behaviour if you change the track's loop mode. This is covered in the next chapter.
 
 ### Track settings
 
-Each track has a settings panel at the end, where you can set the update rate and the track interpolation.
+Each track has a settings panel at the end, where you can set the update rate, the track interpolation, and the loop mode.
 
 ![Track settings](img/animation_track_settings.png)
 
@@ -156,15 +156,22 @@ The interpolation tells Godot how to calculate the frame values between the keyf
 
 * Nearest: Set the nearest keyframe value
 * Linear: Set the value based on a linear function calculation between the two keyframes
-* Cubic: Set the value based on a curved function calculation between the two keyframes
+* Cubic: Set the value based on a cubic function calculation between the two keyframes
 
 ![Track interpolation](img/animation_track_interpolation.png)
 
 Cubic interpolation leads to a more natural movement, where the animation is slower at a keyframe and faster between keyframes. This is usually used for character animation. Linear interpolation creates more of a robotic movement.
 
+Godot supports two loop modes, which affect the animation if it's set to loop:
+
+![Loop modes](img/animation_track_loop_modes.png)
+
+* Clamp loop interpolation: When this is selected, the animation stops after the last keyframe for this track. When the first keyframe is reached again, the animation will reset to its values.
+* Wrap loop interpolation: When this is selected, Godot calculates the animation after the last keyframe to reach the values of the first keyframe again.
+
 ## Keyframes for other properties
 
-Godot doesn't restrict to only edit transform properties. Every property can be used as a track where you can set keyframes.
+Godot doesn't restrict you to only edit transform properties. Every property can be used as a track where you can set keyframes.
 
 If you select your sprite while the animation panel is visible, you get a small keyframe button for all of the sprite's properties. Click on this button and Godot automatically adds a track and keyframe to the current animation.
 
@@ -188,17 +195,17 @@ You usually tweak your animations this way, when the movement doesn't "look righ
 
 ## Advanced: Call Func tracks
 
-Godot's animation engine doesn't stop here. If you're already comfortable with Godot's scripting language GDScript and API you know that each node type is a class and has a bunch of callable functions.
+Godot's animation engine doesn't stop here. If you're already comfortable with Godot's scripting language :ref:toc-learn-scripting-gdscript and :ref:toc-class-ref you know that each node type is a class and has a bunch of callable functions.
 
-For example, the :ref:`class_SamplePlayer2D` node type has a function to play a sample.
+For example, the :ref:class_AudioStreamPlayer node type has a function to play an audio stream.
 
-Wouldn't it be great to play a sample at a specific keyframe in an animation? This is where "Call Func Tracks" come in handy. These tracks reference a node again, this time without a reference to a property. Instead a keyframe holds the name and arguments of a function, that Godot should call when reaching this keyframe.
+Wouldn't it be great to play a stream at a specific keyframe in an animation? This is where "Call Func Tracks" come in handy. These tracks reference a node again, this time without a reference to a property. Instead, a keyframe holds the name and arguments of a function, that Godot should call when it reaches this keyframe.
 
 To let Godot play a sample when it reaches a keyframe, follow this list:
 
-Add a SamplePlayer2D to the Scene Tree and add a sample library and a sample to it.
+Add a :ref:class_AudioStreamPlayer to the Scene Tree and setup a stream using an audio file you put in your project.
 
-![Add SamplePlayer2D](img/animation_add_sampleplayer2d.png)
+![Add AudioStreamPlayer](img/animation_add_audiostreamplayer.png)
 
 Click on "Add track" (![Add track](img/animation_add_track.png)) on the animation panel's track controls.
 
@@ -206,9 +213,9 @@ Select "Add Call Func Track" from the list of possible track types.
 
 ![Add Call Func Track](img/animation_add_call_func_track.png)
 
-Select the SamplePlayer2D node in the selection window. Godot adds the track with the reference to the node.
+Select the :ref:class_AudioStreamPlayer node in the selection window. Godot adds the track with the reference to the node.
 
-![Select SamplePlayer2D](img/animation_select_sampleplayer2d.png)
+![Select AudioStreamPlayer](img/animation_select_audiostreamplayer.png)
 
 Select the timeline position, where Godot should play the sample by clicking on the timeline header.
 
@@ -218,11 +225,11 @@ Click on "Add keyframe" near the settings of our func track (![Add keyframe](img
 
 ![Add a keyframe to the call func track](img/animation_call_func_add_keyframe.png)
 
-Enter "play" as the function name and set the argument counter to 1. Select "String" as the first argument type and use the sample name as the argument value.
+Enter "play" as the function name.
 
 ![Keyframe settings of a call func track](img/animation_call_func_keyframe.png)
 
-When Godot reaches the keyframe, Godot calls the SamplePlayer2D node's "play" function with the sample name.
+When Godot reaches the keyframe, Godot calls the :ref:class_AnimationPlayer node's "play" function and the stream plays.
 
 ## References
 
